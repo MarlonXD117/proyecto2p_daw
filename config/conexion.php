@@ -4,10 +4,10 @@ class Conexion
     public static function conectar()
     {
 
-        $host = "localhost";
-        $bd = "peliculas_db";
-        $usuario = "root";
-        $clave = "";
+        $host = "sql103.infinityfree.com";
+        $bd = "if0_42365461_peliculas_db";
+        $usuario = "if0_42365461";
+        $clave = "8x9ZfWcQNKwz05r";
 
         $conn = new mysqli($host, $usuario, $clave, $bd);
 
