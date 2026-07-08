@@ -1,15 +1,18 @@
 FROM php:8.2-apache
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql
-
 RUN a2enmod rewrite
 
+# Configurar Apache para que use /public como DocumentRoot
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
+
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
+    /etc/apache2/sites-available/*.conf \
+    /etc/apache2/apache2.conf \
+    /etc/apache2/conf-available/*.conf
+
+COPY . /var/www/html
+
 WORKDIR /var/www/html
-
-COPY . .
-
-RUN cp -r public/* /var/www/html/
-
-RUN sed -i 's!/var/www/html!/var/www/html!g' /etc/apache2/sites-available/000-default.conf
 
 EXPOSE 80
