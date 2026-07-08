@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS peliculas (
 
 -- Insertar un administrador por defecto (password: admin123)
 INSERT IGNORE INTO usuarios (username, password, email, rol) 
-VALUES ('admin', '$2y$10$FVAJoXXZbkT5UEINWUzdP.ZSvV1gm1UeaC8OOXyYwdXXZLA.arB8a', 'admin@admin.com', 'admin');
+VALUES ('admin', 'admin123', 'admin@admin.com', 'admin');
 
 -- Insertar géneros iniciales
 INSERT IGNORE INTO generos (nombre) VALUES ('Acción'), ('Comedia'), ('Drama'), ('Ciencia Ficción'), ('Terror');

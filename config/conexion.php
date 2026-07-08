@@ -4,12 +4,13 @@ class Conexion
     public static function conectar()
     {
 
-        $host = "sql103.infinityfree.com";
-        $bd = "if0_42365461_peliculas_db";
-        $usuario = "if0_42365461";
-        $clave = "8x9ZfWcQNKwz05r";
+        $host = "gateway01.us-east-1.prod.aws.tidbcloud.com";
+        $bd = "peliculas_db";
+        $usuario = "9afEaY1VN9Pm9Zt.root";
+        $clave = "";
+        $puerto = "4000";
 
-        $conn = new mysqli($host, $usuario, $clave, $bd);
+        $conn = new mysqli($host, $usuario, $clave, $bd, $puerto);
 
         if ($conn->connect_error) {
             die("Error de conexión: " . $conn->connect_error);
